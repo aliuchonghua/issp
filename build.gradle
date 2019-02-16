@@ -1,0 +1,35 @@
+//http://leon-wood.iteye.com/blog/1751715
+
+apply plugin: 'war'
+
+sourceCompatibility=1.7
+
+targetCompatibility =1.7
+
+repositories {
+	flatDir { dirs "lib" }
+  	mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: '../jarstore/', include: '*.jar')
+    
+    compile fileTree(dir: 'D:/dsrepository/jarstore/core/', include: '*.jar')
+    compile fileTree(dir: 'D:/dsrepository/jarstore/httpclient/', include: '*.jar')
+    compile fileTree(dir: 'D:/dsrepository/jarstore/jfinal/', include: '*.jar')
+    compile fileTree(dir: 'D:/dsrepository/jarstore/poi/', include: '*.jar')
+    
+    compile fileTree(dir: 'D:/dsrepository/jarstore/dssdp/bs_v3.1/', include: '*.jar')
+    compile fileTree(dir: 'D:/dsrepository/jarstore/dssdp/diqm_v3.1/', include: '*.jar')
+ 	compile fileTree(dir: 'D:/dsrepository/jarstore/dssdp/dmm_v3.1/', include: '*.jar')
+ 	compile fileTree(dir: 'D:/dsrepository/jarstore/dssdp/dbi_report_v3.1/', include: '*.jar')
+ 	compile fileTree(dir: 'D:/dsrepository/jarstore/dssdp/elt_v3.1/', include: '*.jar')
+    
+    
+    compile project(':issp-admin-service')
+    compile project(':issp-admin-web')
+}
+
+
+//解决编译GBK乱码
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

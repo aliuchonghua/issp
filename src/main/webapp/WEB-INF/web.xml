@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="false">
+
+  	<display-name>issp</display-name>
+	<filter>
+		<filter-name>bssdp</filter-name>
+		<filter-class>com.jfinal.core.JFinalFilter</filter-class>
+		<init-param>
+			<param-name>configClass</param-name>
+			<!-- 
+				1. WEB层单独部署 或 WEB层、服务层集中部署  com.sdp.core.config.BsConfig
+				2. 当前部署仅包含服务层     com.sdp.core.config.BsConfigService
+			-->
+			<param-value>com.sdp.core.config.BsConfig</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>bssdp</filter-name>
+		<!-- <url-pattern>/*</url-pattern> -->
+		<url-pattern>*.bs</url-pattern>
+	</filter-mapping>
+	
+</web-app>
